@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    display: flex;
+    flex-direction: column;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 85px;
+}
+.leftmenu{
+    display: flex;
+    gap: 50px;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 30px;
+}
+nav ul li a{
+    text-decoration: none;
+    color:gray;
+}
+.rightmenu{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.incon-avatar img{
+    width: 36px;
+}
+.cart img{
+    width: 36px;
+}
+.linha{
+    height: 1px;
+    background-color: black;
+    width: 90%;
+    align-self: center;
+}
+
+.pagina{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 85px);
+}
+.caixaesquerda{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.items{
+    align-self: flex-end;
+}
+.imagem-selecionada{
+    max-width: 500px;
+}
+.imagem-selecionada img{
+    width: 100%;
+    border-radius: 10px;
+}
+.imagens{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 400px;
+    gap:10px;
+}
+.imagem img{
+    width: 100%;
+    border-radius: 10px;
+}
+.caixadireita{
+    width: 100%;
+}
+.quantidade img{
+    width: 20px;
+}
+/*.pagina{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 25px);
+}
+.caixadireita{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: visible;
+    margin-left: -150px;
+    color: white;
+}
+.caixaesquerda{
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    margin-left: 150px;  
+    border-radius: none;
+    border-color: gold;
+}
+.caixadireita button{
+    background-color: rgb(173, 218, 50);
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+}
+.imagem2{
+    max-width: 500px;
+}
+.imagem2 img{
+    width: 100%;
+}
