@@ -17,6 +17,7 @@ header{
 }
 .leftmenu{
     display: flex;
+    align-items: center;
     gap: 50px;
 }
 nav ul li{
@@ -51,6 +52,7 @@ nav ul li a{
     align-items: center;
     width: 100%;
     height: calc(100vh - 85px);
+    gap: 90px;
 }
 .caixaesquerda{
     display: flex;
@@ -80,48 +82,49 @@ nav ul li a{
 .caixadireita{
     width: 100%;
 }
+.conteudo{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.opções{
+    display: flex;
+    gap: 20px;
+}
 .quantidade img{
     width: 20px;
 }
-/*.pagina{
+.quantidade{
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    width: 100%;
-    height: calc(100vh - 25px);
-}
-.caixadireita{
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-    background-color: black;
-    padding: 20px;
+    gap: 30px;
+    background-color: rgb(209, 209, 209);
+    padding: 10px 20px;
     border-radius: 10px;
-    overflow-y: visible;
-    margin-left: -150px;
-    color: white;
+    width: fit-content;
 }
-.caixaesquerda{
-    display: flex;
-    flex-direction: column;
-    width: 100%; 
-    margin-left: 150px;  
-    border-radius: none;
-    border-color: gold;
+.quantidade span{
+    font-weight: 700;
+    font-size: 12px;
 }
-.caixadireita button{
-    background-color: rgb(173, 218, 50);
-    color: black;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
+.menos, .mais{
     cursor: pointer;
-    margin-top: auto;
 }
-.imagem2{
-    max-width: 500px;
+.botão img{
+    width: 14px;
 }
-.imagem2 img{
-    width: 100%;
+.botão{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: gold;
+    padding: 5px 35px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 700;
 }
