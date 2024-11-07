@@ -2,17 +2,19 @@
 include('conexao.php');
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $nome = htmlspecialchars($_POST['nome']);
-    $descrição = htmlspecialchars($_POST['descricao']);
+    $descricao = htmlspecialchars($_POST['descricao']);
     $ingredientes = htmlspecialchars($_POST['ingredientes']);
     $usar= htmlspecialchars($_POST['usar']);
     $ocasiao = htmlspecialchars($_POST['ocasiao']);
     $preco = (float) $_POST['preco'];
-    if(isset($_FILE['imagem']) && $_FILE['imagem']['error'] ==0 ){
-        $nomeImagem = basename($_FILE['imagem']['name']);
+    $categoria = (int) $_POST['categoria'];
+    echo $categoria;
+    if(isset($_FILES['imagem']) && $_FILES['imagem']['error'] ==0 ){
+        $nomeImagem = basename($_FILES['imagem']['name']);
         $caminhoImagem = "img/".$nomeImagem;
-        if(move_uploaded_file($_FILE['imagem']['tmp_name'],$caminhoImagem)){
+        if(move_uploaded_file($_FILES['imagem']['tmp_name'],$caminhoImagem)){
             try{
-                $sql = "INSERT INTO produto (nome, preco, descricao, ingredientes, usar, ocasiao, imagem, categoria) VALUES (:nome, :preco, :descricao, :ingredientes, :usar, :ocasiao, :imagem, :categoria)";
+                $sql = "INSERT INTO produto (nome, preco, descricao, ingredientes, usar, ocasiao, imagem, idcategoria) VALUES (:nome, :preco, :descricao, :ingredientes, :usar, :ocasiao, :imagem, :idcategoria)";
                 $stmt = $conexao->prepare($sql);
                 $stmt->bindParam(':nome',$nome);
                 $stmt->bindParam(':preco',$preco);
@@ -21,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                 $stmt->bindParam(':usar',$usar);
                 $stmt->bindParam(':ocasiao',$ocasiao);
                 $stmt->bindParam(':imagem',$caminhoImagem);
-                $stmt->bindParam(':categoria',$categoria);
+                $stmt->bindParam(':idcategoria',$categoria);
 
                 if ($stmt->execute()){
                     echo "Produto inserido com sucesso!";
