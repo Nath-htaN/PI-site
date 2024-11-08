@@ -33,6 +33,13 @@ nav ul li a{
     align-items: center;
     gap: 20px;
 }
+.incon-avatar{
+    border: 2px;
+    border-radius: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-self: space-evenly;
+}
 .incon-avatar img{
     width: 36px;
 }
@@ -41,7 +48,7 @@ nav ul li a{
 }
 .linha{
     height: 1px;
-    background-color: black;
+    background-color: #edc967;
     width: 90%;
     align-self: center;
 }
@@ -82,6 +89,17 @@ nav ul li a{
 .caixadireita{
     width: 100%;
 }
+.borda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    border: 2px solid;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px 2px rgb(0, 0, 0);
+}
 .conteudo{
     max-width: 400px;
     display: flex;
@@ -100,9 +118,10 @@ nav ul li a{
     align-items: center;
     gap: 30px;
     background-color: rgb(209, 209, 209);
-    padding: 10px 20px;
+    padding: 10px 50px;
     border-radius: 10px;
     width: fit-content;
+    box-shadow: 2px 2px 1px 2px rgb(0, 0, 0);
 }
 .quantidade span{
     font-weight: 700;
@@ -118,7 +137,7 @@ nav ul li a{
     display: inline-block;
     text-decoration: none;
     color: white;
-    background-color: gold;
+    background-color: #edc967;
     padding: 5px 35px;
     border-radius: 10px;
     display: flex;
@@ -127,4 +146,5 @@ nav ul li a{
     gap: 5px;
     font-size: 12px;
     font-weight: 700;
+    box-shadow: 2px 2px 1px 2px rgb(0, 0, 0);
 }

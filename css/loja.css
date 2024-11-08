@@ -33,6 +33,13 @@ nav ul li a{
     align-items: center;
     gap: 20px;
 }
+.incon-avatar{
+    border: 2px;
+    border-radius: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-self: space-evenly;
+}
 .incon-avatar img{
     width: 36px;
 }
@@ -54,7 +61,7 @@ nav ul li a{
     height: calc(100vh - 85px);
     gap: 90px;
 }
-.grid{
+#grid{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 30px;
@@ -68,8 +75,9 @@ nav ul li a{
     background-color: white;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-.img{
+.item img{
     border: 2px;
     border-radius: 20px;
     overflow: hidden;
