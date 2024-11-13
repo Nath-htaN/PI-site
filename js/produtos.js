@@ -8,7 +8,7 @@ function carregarProdutos(){
                 const produtoDiv = document.createElement('div');
                 produtoDiv.className = 'item';
                 produtoDiv.onclick = () =>{
-                    window.location.href = `${produto.nome}.html`;
+                    window.location.href = `produto_${produto.idproduto}.html`;
                 };
                 const imagem = document.createElement('img');
                 imagem.src = produto.imagem;
