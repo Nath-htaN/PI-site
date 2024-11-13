@@ -9,8 +9,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $celular=(int)$_POST['celular'];
     $senha=htmlspecialchars($_POST['senha']);
     $genero=htmlspecialchars($_POST['genero']);
+    $senha = password_hash($senha, PASSWORD_DEFAULT);
         try{
-            $sql="INSERT INTO usuario(nome, sobrenome, email, cpf, datas, celular, senha, genero) VALUES (:nome, :sobrenome, :email, :cpf, :datas, :celular, :senha, :genero)";
+            $sql="INSERT INTO usuario(nome, sobrenome, email, cpf, celular, senha, genero, datas) VALUES (:nome, :sobrenome, :email, :cpf, :celular, :senha, :genero, STR_TO_DATE(:datas, '%d%m%Y'))";
             $stmt=$conexao->prepare($sql);
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':sobrenome', $sobrenome);
