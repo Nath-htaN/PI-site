@@ -19,30 +19,21 @@ if (isset($_GET['nome'])) {
     $stmt->execute([':nome' => "%$nome%"]);
 
     // Exibe os resultados
-    if ($stmt->rowCount() > 0) {
-        while ($produto = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo '<form action="atualizar_produto.php" method="POST" enctype="multipart/form-data">';
-            echo '<input type="hidden" name="idproduto" value="' . htmlspecialchars($produto['idproduto']) . '">';
-            echo '<label>Nome:</label><input type="text" name="nome" value="' . htmlspecialchars($produto['nome']) . '"><br>';
-            echo '<label>Preço:</label><input type="text" name="preco" value="' . htmlspecialchars($produto['preco']) . '"><br>';
-            echo '<label>Descrição:</label><textarea name="descricao">' . htmlspecialchars($produto['descricao']) . '</textarea><br>';
-            echo '<label>Ingredientes:</label><textarea name="ingredientes">' . htmlspecialchars($produto['ingredientes']) . '</textarea><br>';
-            echo '<label>Como Usar:</label><textarea name="usar">' . htmlspecialchars($produto['usar']) . '</textarea><br>';
-            echo '<label>Ocasião:</label><textarea name="ocasiao">' . htmlspecialchars($produto['ocasiao']) . '</textarea><br>';
-            echo '<label>Categoria:</label><input type="text" value="' . htmlspecialchars($produto['categoria_nome']) . '" readonly><br>';
-            echo '<input type="hidden" name="idcategoria" value="' . htmlspecialchars($produto['idcategoria']) . '">';
-            
-            if ($produto['imagem']) {
-                echo '<label>Imagem Atual:</label><br><img src="' . htmlspecialchars($produto['imagem']) . '" alt="Imagem do Produto" style="width:100px; height:auto;"><br>';
-            }
-            echo '<label>Nova Imagem:</label><input type="file" name="imagem"><br>';
-            
-            echo '<button type="submit">Atualizar Produto</button>';
-            echo '</form><hr>';
+    echo '[';
+    $first = true;
+    while($row_produto = $stmt->fetch(PDO::FETCH_ASSOC)){
+        if(!$first){
+            echo ',';
         }
-    } else {
-        echo "<p>Nenhum produto encontrado.</p>";
+        $first = false;
+        echo json_encode([
+            'idproduto' => $row_produto['idproduto'],
+            'nome' => $row_produto['nome'],
+            'preco' => $row_produto['preco'],
+            'imagem' => $row_produto['imagem']
+        ]);
     }
+    echo ']';
 } else {
     echo "<p>Parâmetro de busca não especificado.</p>";
 }

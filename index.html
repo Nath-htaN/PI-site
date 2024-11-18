@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/loja.css">
 </head>
+
 <body>
     <header>
         <div class="menu">
@@ -23,9 +25,15 @@
                 </nav>
             </div>
             <div class="rightmenu">
-                <a href="" class="cart"><img src="img/iconplaceholder2.jpg"></a>
-                <a href="" class="incon-avatar"><img src="img/iconplaceholder2.jpg"></a>
+                <div class="pesquisa">
+                <input name="busca" id="search" placeholder="buscar" onkeyup="buscarProduto()">
+                <ul id="resultados">
+
+                </ul>
             </div>
+            <a href="" class="cart"><img src="img/iconplaceholder2.jpg"></a>
+            <a href="" class="incon-avatar"><img src="img/iconplaceholder2.jpg"></a>
+        </div>
         </div>
         <div class="linha"></div>
     </header>
@@ -39,6 +47,8 @@
             </div>
         </section>
     </main>
+    <script src="js/pesquisa.js"></script>
     <script src="js/produtos.js" defer></script>
 </body>
+
 </html>
