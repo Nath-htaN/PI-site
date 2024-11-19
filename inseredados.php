@@ -38,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                          <title>$nome</title>
                          <link rel='stylesheet' href='css/produtos.css'>
                      </head>
-                     
                      <body>
                          <header>
                              <div class='menu'>
@@ -69,15 +68,18 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                      <div class='caixaesquerda'>
                                          <div class='items'>
                                              <div class='imagem-selecionada'>
-                                                 <img src='$caminhoImagem' alt='$nome'>
+                                                 <img src='' alt='$nome'>
                                              </div>
                                          </div>
                                      </div>
+                                     <div class='idproduto' style='display: none;'>
+                                        $idproduto
+                                    </div>
                                      <div class='caixadireita'>
                                          <div class='borda'>
                                              <div class='conteudo'>
-                                                 <h1>$nome</h1>
-                                                 <p>$descricao</p>
+                                                 <h1></h1>
+                                                 <p class='descrição'></p>
                                                  <span class='preco'>R$ " . number_format($preco, 2, ',', '.') . "</span>
                                                  <div class='opcoes'>
                                                      <div class='quantidade'>
@@ -100,19 +102,19 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                          <div class='borda2'>
                                              <div id='conteudo'>
                                                  <h2>Ingredientes:</h2>
-                                                 <p>$ingredientes</p>
+                                                 <p class='Ingredientes'></p>
                                                  <h2>Como Usar:</h2>
-                                                 <p>$usar</p>
+                                                 <p class='Como-Usar'></p>
                                                  <h2>Ocasião:</h2>
-                                                 <p>$ocasiao</p>
+                                                 <p class='Ocasiao'></p>
                                              </div>
                                          </div>
                                      </div>
                                  </div>
                              </section>
                          </main>
+                         <script src='js/atualizapagina.js'></script>
                      </body>
-                     
                      </html>
                      ";
                      $file_path = "produto_$idproduto.html";
