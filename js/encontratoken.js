@@ -8,31 +8,29 @@ const menu = document.querySelector('.submenu')
 if (getCookie('token')) {
     menu.innerHTML ="";
     console.log('Token encontrado no cookie!');
-    const item = document.createElement('li');
     const link = document.createElement('a');
+    link.textContent = 'alterar produto'
     link.href = 'alteracao.html';
-    item.appendChild(link)
-    menu.appendChild(item)
+    menu.appendChild(link)
 } else {
     menu.innerHTML ="";
     console.log('Token não encontrado no cookie!');
-    const item = document.createElement('li');
     const link = document.createElement('a');
     link.textContent = 'login'
     link.href = 'login.html';
-    item.appendChild(link);
-    menu.appendChild(item);
+    menu.appendChild(link);
 }
 
-const avatar = document.querySelector('.incon-avatar')
-const submenu = document.querySelectorAll('.submenu');
-console.log(avatar);  
-console.log(submenu);
-avatar.addEventListener('click', function(event){
-    event.preventDefault();
-    if (submenu.style.display === 'block'){
-        submenu.style.display = 'none';
-    } else {
-        submenu.style.display = 'block';
-    }
+function abreomenu(){
+    const submenu = document.getElementById("loginsubmenu")
+    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+}
+document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("click",function(event){
+        const usericon = document.querySelector(".incon-avatar");
+        const submenu = document.getElementById("loginsubmenu");
+        if(!usericon.contains(event.target) && !submenu.contains(event.target)){
+            submenu.style.display = "none";
+        }
+    })
 })
