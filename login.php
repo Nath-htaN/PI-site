@@ -12,7 +12,7 @@ if(isset($_SESSION['msg'])){
 include('conexao.php');
 $dados=filter_input_array(INPUT_POST,FILTER_DEFAULT);
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $query="SELECT idusuario, nome, email, senha FROM usuario WHERE email=:email LIMIT 1";
+    $query="SELECT idusuario, nome, email, senha, tipo FROM usuario WHERE email=:email LIMIT 1";
     // Preparar a Query
     $result = $conexao->prepare($query);
     // Substiui o link ":email" pelo valor que vem do formulário
@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             // iat - Data de Criação do Token
             // exp - Data de vencimento do token
             $criado=time();
-            $duracao=time()+(60);
+            $duracao=time()+(200);
             $payload=[
                 'iss'=>'localhost',
                 'aud'=>'localhost',
@@ -56,7 +56,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 'exp'=>$duracao,
                 'id'=>$row_usuario['idusuario'],
                 'nome'=>$row_usuario['nome'],
-                'email'=>$row_usuario['email']
+                'email'=>$row_usuario['email'],
+                'tipo'=>$row_usuario['tipo']
             ];
             //converter o array em objeto
             $payload= json_encode($payload);
@@ -82,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
             //Salvar o Token em cookies
             // Cria o cookies com duração de 7 dias
-            setCookie('token',"$header.$payload.$signature",(time()+(60)));
+            setCookie('accountholder',"$header.$payload.$signature",(time()+(60)));
 
             //Redireciona o usuário para a pagina index.html
             http_response_code(200);
