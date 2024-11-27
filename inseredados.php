@@ -45,21 +45,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                      <div class='logo'>
                                          <img src='img/logoplaceholder.png' alt='Logo'>
                                      </div>
-                                     <nav>
-                                         <ul>
-                                             <li><a href=''>Perfumaria</a></li>
-                                             <li><a href=''>Banho</a></li>
-                                             <li><a href=''>Aromas</a></li>
-                                             <li><a href=''>Infantil</a></li>
-                                             <li><a href=''>Masculino</a></li>
-                                         </ul>
-                                     </nav>
-                                 </div>
-                                 <div class='rightmenu'>
-                                     <a href='' class='cart'><img src='img/iconplaceholder2.jpg' alt='Carrinho'></a>
-                                     <a href='' class='incon-avatar'><img src='img/iconplaceholder2.jpg' alt='Avatar'></a>
-                                 </div>
-                             </div>
+                                        <nav>
+                                            <ul>
+                                                <li><a href='index.html'>Home</a></li>
+                                                <li><a href='perfumaria.html'>Perfumaria</a></li>
+                                                <li><a href='aromas.html'>Aromas</a></li>
+                                                <li><a href='infantil.html'>Infantil</a></li>
+                                                <li><a href='masculino.html'>Masculino</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class='rightmenu'>
+                                        <div class='pesquisa'>
+                                        <input name='busca' id='search' placeholder='buscar' onkeyup='buscarProduto()'>
+                                        <ul id='resultados'>
+                                        </ul>
+                                    </div>
                              <div class='linha'></div>
                          </header>
                          <main>
@@ -72,9 +73,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                              </div>
                                          </div>
                                      </div>
-                                     <div class='idproduto' style='display: none;'>
-                                        $idproduto
-                                    </div>
+                                     <div class='idproduto' style='display: none;'>$idproduto</div>
                                      <div class='caixadireita'>
                                          <div class='borda'>
                                              <div class='conteudo'>
@@ -114,6 +113,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                              </section>
                          </main>
                          <script src='js/atualizapagina.js'></script>
+                          <script src='js/carrinho2.js'></script>
+                         <script src='js/pesquisa.js'></script>
+                         <script src='js/validarToken.js'></script>
                      </body>
                      </html>
                      ";
