@@ -3,11 +3,11 @@ include('conexao.php');
 header('Content-Type: application/json');
 function validarToken()
 {
-    if (!isset($_COOKIE['acountholder'])) {
+    if (!isset($_COOKIE['accountholder'])) {
         return false;
     }
     //Recuperar o Token do cookie
-    $token = $_COOKIE['acountholder'];
+    $token = $_COOKIE['accountholder'];
     //var_dump($token);
     //Converter o Token em Array
     $token_array = explode('.', $token);

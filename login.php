@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             // iat - Data de Criação do Token
             // exp - Data de vencimento do token
             $criado=time();
-            $duracao=time()+(200);
+            $duracao=time()+(60*60*24*365);
             $payload=[
                 'iss'=>'localhost',
                 'aud'=>'localhost',
@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
             //Salvar o Token em cookies
             // Cria o cookies com duração de 7 dias
-            setCookie('accountholder',"$header.$payload.$signature",(time()+(60)));
+            setCookie('accountholder',"$header.$payload.$signature",(time()+(60*60*24*365)));
 
             //Redireciona o usuário para a pagina index.html
             http_response_code(200);

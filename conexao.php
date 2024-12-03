@@ -1,7 +1,7 @@
 <?php
     $host= 'localhost';
     $usuario = 'root';
-    $senha = 'Senac@2024';
+    $senha = 'undegor!13';
     $dbname = 'rpavan';
 
     try{

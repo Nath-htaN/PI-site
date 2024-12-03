@@ -28,7 +28,9 @@
             <div class="rightmenu">
                 <div class="pesquisa">
                 <input name="busca" id="search" placeholder="buscar" onkeyup="buscarProduto()">
-                <ul id="resultados"></ul>
+                <ul id="resultados">
+
+                </ul>
             </div>
             <a href="carrinho.html" class="cart"><img src="img/sacola.svg"></a>
             <div class="incon-avatar" onclick="abreomenu()">
@@ -40,6 +42,9 @@
         <div class="linha"></div>
     </header>
     <main>
+        <div id="idcategoria" style="display: none;">
+            4
+        </div>
         <section>
             <div class="pagina">
                 <div class="caixa">
@@ -50,7 +55,7 @@
         </section>
     </main>
     <script src="js/pesquisa.js"></script>
-    <script src="js/produtos.js" defer></script>
+    <script src="js/produtoscat.js" defer></script>
     <script src="js/validarToken.js"></script>
 </body>
 </html>

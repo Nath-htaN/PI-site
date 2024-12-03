@@ -43,24 +43,30 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                              <div class='menu'>
                                  <div class='leftmenu'>
                                      <div class='logo'>
-                                         <img src='img/logoplaceholder.png' alt='Logo'>
+                                         <img src='img/rpavan2.svg' alt='Logo'>
                                      </div>
-                                        <nav>
-                                            <ul>
-                                                <li><a href='index.html'>Home</a></li>
-                                                <li><a href='perfumaria.html'>Perfumaria</a></li>
-                                                <li><a href='aromas.html'>Aromas</a></li>
-                                                <li><a href='infantil.html'>Infantil</a></li>
-                                                <li><a href='masculino.html'>Masculino</a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    <div class='rightmenu'>
-                                        <div class='pesquisa'>
+                                     <nav>
+                                         <ul>
+                                            <li><a href='index.html'>Home</a></li>
+                                            <li><a href='perfumaria.html'>Perfumaria</a></li>
+                                            <li><a href='aromas.html'>Aromas</a></li>
+                                            <li><a href='infantil.html'>Infantil</a></li>
+                                            <li><a href='masculino.html'>Masculino</a></li>
+                                         </ul>
+                                     </nav>
+                                 </div>
+                                 <div class='rightmenu'>
+                                    <div class='pesquisa'>
                                         <input name='busca' id='search' placeholder='buscar' onkeyup='buscarProduto()'>
-                                        <ul id='resultados'>
-                                        </ul>
+                                        <ul id='resultados'></ul>
                                     </div>
+                                    <a href='carrinho.html' class='cart'><img src='img/sacola.svg' alt='Carrinho'></a>
+                                    <div class='incon-avatar' onclick='abreomenu()'>
+                                    <img src='img/user.svg'>
+                                    </div>
+                                    <div id='loginsubmenu' class='submenu'></div>
+                                 </div>
+                             </div>
                              <div class='linha'></div>
                          </header>
                          <main>
@@ -73,24 +79,26 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                              </div>
                                          </div>
                                      </div>
-                                     <div class='idproduto' style='display: none;'>$idproduto</div>
+                                     <div class='idproduto' style='display: none;'>
+                                        $idproduto
+                                    </div>
                                      <div class='caixadireita'>
                                          <div class='borda'>
                                              <div class='conteudo'>
                                                  <h1></h1>
                                                  <p class='descrição'></p>
-                                                 <span class='preco'>R$ " . number_format($preco, 2, ',', '.') . "</span>
+                                                 <span class='preco'></span>
                                                  <div class='opcoes'>
                                                      <div class='quantidade'>
                                                          <div class='menos'>
-                                                             <img src='img/menor.png' alt='Diminuir quantidade'>
+                                                             <img src='img/menor.svg' alt='Diminuir quantidade'>
                                                          </div>
                                                          <span>1</span>
                                                          <div class='mais'>
-                                                             <img src='img/maior.png' alt='Aumentar quantidade'>
+                                                             <img src='img/maior.svg' alt='Aumentar quantidade'>
                                                          </div>
                                                      </div>
-                                                     <a href='' class='botão'><img src='img/placeholder.webp' alt='Carrinho'>Adicionar ao carrinho</a>
+                                                     <a href='' class='botão'><img src='img/sacola.svg' alt='Carrinho' onclick='addCarrinho()'>Adicionar ao carrinho</a>
                                                  </div>
                                              </div>
                                          </div>
@@ -112,10 +120,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                  </div>
                              </section>
                          </main>
-                         <script src='js/atualizapagina.js'></script>
-                          <script src='js/carrinho2.js'></script>
-                         <script src='js/pesquisa.js'></script>
                          <script src='js/validarToken.js'></script>
+                         <script src='js/pesquisa.js'></script>
+                         <script src='js/atualizapagina.js'></script>
+                         <script src='js/carrinho2.js'></script>
                      </body>
                      </html>
                      ";
