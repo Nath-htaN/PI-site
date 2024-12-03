@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         console.error("Erro ao carregar o produto: " + produto.error);
                         return;
                     }
+                    document.title = produto.nome;
                     document.querySelector('h1').innerText = produto.nome;
                     document.querySelector('.preco').innerText = 'R$: ' +produto.preco
                     document.querySelector('.descrição').innerText = produto.descricao

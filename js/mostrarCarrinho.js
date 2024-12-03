@@ -1,7 +1,7 @@
 function PegarCookie() {
     return document.cookie
         .split('; ')
-        .find(row => row.startsWith('token='))
+        .find(row => row.startsWith('accountholder='))
         ?.split('=')[1];
 }
 
@@ -52,6 +52,7 @@ async function mostrarCarrinho(){
             if(produtos.length > 0 ){
                 produtos.forEach(produto =>{
                     const item = document.createElement('li');
+                    item.className='item'
                     item.idproduto = produto.idproduto;
 
                     const texto = document.createElement('div');
@@ -83,8 +84,8 @@ async function mostrarCarrinho(){
 
                     item.appendChild(imagem);
                     texto.appendChild(nome);
-                    texto.appendChild(preco);
                     texto.appendChild(quant);
+                    texto.appendChild(preco);
                     texto.appendChild(idcarrinho);
                     texto.appendChild(sub);
                     item.appendChild(texto);

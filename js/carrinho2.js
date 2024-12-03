@@ -2,7 +2,7 @@
 function PegarCookie() {
     return document.cookie
         .split('; ')
-        .find(row => row.startsWith('token='))
+        .find(row => row.startsWith('accountholder='))
         ?.split('=')[1];
 }
 
