@@ -68,3 +68,23 @@ async function addCarrinho() {
         alert('Houve um erro ao processar sua solicitação.');
     }
 }
+function addQty(){
+    event.preventDefault();
+    const quantidade = document.querySelector(".qty");
+    valor = parseInt(document.querySelector(".qty").textContent.trim());
+    valor += 1;
+    quantidade.innerHTML="";
+    quantidade.textContent=valor;
+
+}
+function removeQty(){
+    event.preventDefault();
+    const quantidade = document.querySelector(".qty");
+    valor = parseInt(document.querySelector(".qty").textContent.trim());
+    if(valor!=1){
+        valor -= 1;
+        quantidade.innerHTML="";
+        quantidade.textContent=valor;
+    }
+
+}

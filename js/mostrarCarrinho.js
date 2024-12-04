@@ -53,11 +53,7 @@ async function mostrarCarrinho(){
                 produtos.forEach(produto =>{
                     const item = document.createElement('li');
                     item.className='item'
-
-                    const id = document.createElement('p');
-                    id.className='idprod'
-                    id.textContent = produto.idproduto;
-                    id.style.display = 'none';
+                    item.idproduto = produto.idproduto;
 
                     const texto = document.createElement('div');
                     texto.className = 'texto';
@@ -65,16 +61,9 @@ async function mostrarCarrinho(){
                     const imagem = document.createElement('img')
                     imagem.src = produto.imagem;
                     imagem.alt = produto.nome;
-                    imagem.onclick = () =>{
-                        window.location.href = `produto_${produto.idproduto}.html`;
-                    };
 
                     const nome = document.createElement('h4')
-                    nome.className = 'nome';
                     nome.textContent = produto.nome;
-                    nome.onclick = () =>{
-                        window.location.href = `produto_${produto.idproduto}.html`;
-                    };
 
                     const preco = document.createElement('span');
                     preco.className = 'preco';
@@ -94,7 +83,6 @@ async function mostrarCarrinho(){
                     idcarrinho.style.display = 'none';
 
                     item.appendChild(imagem);
-                    texto.appendChild(id);
                     texto.appendChild(nome);
                     texto.appendChild(quant);
                     texto.appendChild(preco);
@@ -111,7 +99,7 @@ async function mostrarCarrinho(){
             subtotais.forEach(subtotal =>{
                 total += parseFloat(subtotal.textContent) || 0;
             });
-            document.getElementById('total').textContent = total.toFixed(2);
+            document.getElementById('total').textContent = `R$ ${total.toFixed(2)}`;
         }
     }
     xhr.send()
