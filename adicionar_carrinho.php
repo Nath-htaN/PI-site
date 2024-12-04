@@ -27,12 +27,13 @@ try {
     $resultado = $stmt2->fetch(PDO::FETCH_ASSOC);
     if(!empty($resultado)){
         $sql3="UPDATE carrinho 
-        SET quantidade = quantidade + 1 
+        SET quantidade = quantidade + :quantidade 
         WHERE idproduto = :idproduto 
         AND idusuario = :idusuario";
         $stmt3 = $conexao->prepare($sql3);
         $stmt3->bindParam(':idusuario', $idusuario, PDO::PARAM_INT);
         $stmt3->bindParam(':idproduto', $idproduto, PDO::PARAM_INT);
+        $stmt3->bindParam(":quantidade",$quantidade,PDO::PARAM_INT);
         $stmt3->execute();
         if ($stmt3->rowCount() > 0) {
             echo json_encode(['status' => 'success', 'message' => 'Produto adicionado ao carrinho.']);
