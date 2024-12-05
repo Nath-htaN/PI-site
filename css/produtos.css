@@ -28,6 +28,60 @@ nav ul li a{
     text-decoration: none;
     color:gray;
 }
+.logo{
+    width: 120px;
+}
+.logo img{
+    width: 100%;
+}
+.pesquisa {
+    position: relative;
+    width: 300px;
+    margin: 50px auto;
+}
+#search {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#resultados {
+    position: absolute; /* Faz com que os resultados fiquem abaixo do campo de pesquisa */
+    top: 100%; /* Posiciona imediatamente abaixo do campo de pesquisa */
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 10;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+#resultados li {
+    display: flex;
+    flex-direction: center;
+    padding: 8px;
+    cursor: pointer;
+}
+#resultados li .texto {
+    display: flex;
+    flex-direction: column;   
+}
+
+#resultados li .preco {
+    margin-top: 5px;
+}
+#resultados li .h4{
+    margin: 0;
+}
+#resultados img {
+    width: 36px;
+    margin-right: 10px;
+}
 .rightmenu{
     display: flex;
     align-items: center;
@@ -39,9 +93,33 @@ nav ul li a{
     overflow: hidden;
     display: flex;
     justify-self: space-evenly;
+    width: 50px;
 }
 .incon-avatar img{
-    width: 36px;
+    width: 100%;
+    cursor: pointer;
+    display: inline-block;
+}
+.submenu{
+    position: absolute;
+    top: 70px;
+    right: 70px;
+    width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    background-color: rgb(192, 192, 192);
+}
+.submenu a{
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 4px;
+    border-radius: 3px;
+    text-align: end;
+}
+.submenu a:hover {
+    background-color: #ddd;
 }
 .cart img{
     width: 36px;
@@ -71,7 +149,7 @@ nav ul li a{
     align-self: flex-end;
 }
 .imagem-selecionada{
-    max-width: 500px;
+    max-width: 400px;
 }
 .imagem-selecionada img{
     width: 100%;
@@ -113,29 +191,35 @@ nav ul li a{
     gap: 20px;
 }
 .quantidade img{
-    width: 20px;
+    width: 30px;
 }
 .quantidade{
     display: flex;
     align-items: center;
-    gap: 30px;
-    background-color: rgb(209, 209, 209);
-    padding: 10px 50px;
-    border-radius: 10px;
     width: fit-content;
+    background-color: rgb(209, 209, 209);
     box-shadow: 2px 2px 1px 2px rgb(0, 0, 0);
+    border-radius: 10px;
 }
 .quantidade span{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 10px;
+    width: fit-content;
     font-weight: 700;
     font-size: 12px;
 }
 .menos, .mais{
+    display: flex;
     cursor: pointer;
+    width: 30px;
 }
 .botão img{
-    width: 14px;
+    width: 30px;
 }
 .botão{
+    margin-top: 10px;
     display: inline-block;
     text-decoration: none;
     color: white;

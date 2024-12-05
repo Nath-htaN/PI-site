@@ -28,6 +28,60 @@ nav ul li a{
     text-decoration: none;
     color:gray;
 }
+.logo{
+    width: 120px;
+}
+.logo img{
+    width: 100%;
+}
+.pesquisa {
+    position: relative;
+    width: 300px;
+    margin: 50px auto;
+}
+#search {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#resultados {
+    position: absolute; /* Faz com que os resultados fiquem abaixo do campo de pesquisa */
+    top: 100%; /* Posiciona imediatamente abaixo do campo de pesquisa */
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 10;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+#resultados li {
+    display: flex;
+    flex-direction: center;
+    padding: 8px;
+    cursor: pointer;
+}
+#resultados li .texto {
+    display: flex;
+    flex-direction: column;   
+}
+
+#resultados li .preco {
+    margin-top: 5px;
+}
+#resultados li .h4{
+    margin: 0;
+}
+#resultados img {
+    width: 36px;
+    margin-right: 10px;
+}
 .rightmenu{
     display: flex;
     align-items: center;
@@ -39,16 +93,17 @@ nav ul li a{
     overflow: hidden;
     display: flex;
     justify-self: space-evenly;
+    width: 50px;
 }
 .incon-avatar img{
-    width: 36px;
+    width: 100%;
     cursor: pointer;
     display: inline-block;
 }
 .submenu{
     position: absolute;
     top: 70px;
-    right: 10px;
+    right: 70px;
     width: 120px;
     padding: 5px;
     border-radius: 5px;
@@ -105,6 +160,7 @@ nav ul li a{
     border-radius: 20px;
     overflow: hidden;
     display: flex;
+    height: 200px;
     justify-content: space-evenly;
     max-width: 300px;
     gap:10px;
