@@ -6,7 +6,7 @@ function getTokenFromCookies() {
         ?.split('=')[1];
 }
 function deslogar(nome){
-    document.cookie = nome + "=; expires = Thu 01 jan 1970 00:00 UTC; path=/aa/pi;"
+    document.cookie = nome + "=; expires = Thu 01 jan 1970 00:00 UTC; path=/aa/PI-site-main;"
     location.reload();
   }
 
@@ -55,22 +55,66 @@ async function isUserLoggedIn() {
     return isValid;
 }
 (async function updateMenu(){
+    const token = getTokenFromCookies();
     const isLogged= await isUserLoggedIn();
     const menu = document.querySelector('.submenu')
     menu.innerHTML="";
     if(isLogged){
-        menu.innerHTML ="";
-        console.log('Token encontrado no cookie!');
-        const link = document.createElement('a');
-        link.textContent = 'alterar produto'
-        link.href = 'alteracao.html';
-        const log = document.createElement('a');
-        log.onclick = function(){
-            deslogar('acountholder');
+        try{
+            const response = await fetch('pegartipo.php', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token }),
+            });
+            if (response.ok){
+                const tipo = await response.json();
+                const tipoid = tipo.tipousuario
+                console.log(tipoid)
+                if(tipoid == 0){
+                    const linha = document.querySelector('.linha')
+                    const menu = document.querySelector('.submenu')
+                        menu.innerHTML ="";
+                        console.log('Token encontrado no cookie!');
+                        const link = document.createElement('a');
+                        link.textContent = 'cadastrar produto'
+                        link.href = 'cadastro.html';
+                        const link2 = document.createElement('a');
+                        link2.textContent = 'alterar produto'
+                        link2.href = 'alteracao.html';
+                        const log = document.createElement('a');
+                        log.onclick = function(){
+                            deslogar('accountholder');
+                        }
+                        log.textContent = 'logout'
+                        const adm = document.createElement('a');
+                        adm.textContent = 'ADMINISTRADOR'
+                        linha.appendChild(adm)
+                        menu.appendChild(link)
+                        menu.appendChild(link2)
+                        menu.appendChild(log)
+                }else if(tipoid == 1){
+                    const menu = document.querySelector('.submenu')
+                    menu.innerHTML ="";
+                    console.log('Token encontrado no cookie!');
+                    const link = document.createElement('a');
+                    link.textContent = 'meus pedidos'
+                    link.href = '';
+                    const log = document.createElement('a');
+                    log.onclick = function(){
+                        deslogar('accountholder');
+                    }
+                    log.textContent = 'logout'
+                    menu.appendChild(link)
+                    menu.appendChild(log)
+                }
+                
+            }
+        } catch(error){
+            console.error('erro no tipo', error);
+            return false;
         }
-        log.textContent = 'logout'
-        menu.appendChild(link)
-        menu.appendChild(log)
     }else{
         menu.innerHTML ="";
         console.log('Token não encontrado no cookie!');
@@ -79,7 +123,6 @@ async function isUserLoggedIn() {
         link.href = 'login.html';
         menu.appendChild(link);
     }
-    
 })();
 
 function abreomenu(){
