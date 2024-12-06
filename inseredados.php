@@ -79,7 +79,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                              </div>
                                          </div>
                                      </div>
-                                     <div class='idproduto' style='display: none;'>$idproduto</div>
+                                     <div class='idproduto' style='display: none;'>
+                                        $idproduto
+                                    </div>
                                      <div class='caixadireita'>
                                          <div class='borda'>
                                              <div class='conteudo'>
@@ -91,12 +93,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                                                          <div class='menos'>
                                                              <img src='img/menor.svg' alt='Diminuir quantidade' onclick='removeQty()'>
                                                          </div>
-                                                         <span>1</span>
+                                                         <span class='qty'>1</span>
                                                          <div class='mais'>
                                                              <img src='img/maior.svg' alt='Aumentar quantidade' onclick='addQty()'>
                                                          </div>
-                                                     </div>
-                                                     <a class='botão'><img src='img/sacola.svg' alt='Carrinho' onclick='addCarrinho()'>Adicionar ao carrinho</a>
+                                                     <a href='' class='botão'><img src='img/sacola.svg' alt='Carrinho' onclick='addCarrinho()'>Adicionar ao carrinho</a>
                                                  </div>
                                              </div>
                                          </div>
