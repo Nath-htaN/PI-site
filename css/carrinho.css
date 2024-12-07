@@ -130,60 +130,149 @@ nav ul li a{
     width: 90%;
     align-self: center;
 }
-.carrinho{
-    max-width: 1200px;
+.linha a{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  /* Centraliza o link */
+    color: red;
+    font-weight: bold;
+}
+.container {
+    display: flex; /* Isso coloca as caixas lado a lado */
+    gap: 20px; /* Espaço entre as caixas */
+    justify-content: space-between; /* Distribui o espaço de forma uniforme entre as caixas */
+    flex-wrap: wrap; /* Permite que as caixas se reorganizem em linha em dispositivos menores */
+    max-width: 100%; /* Impede que o contêiner ultrapasse a largura da página */
+}
+.carrinho {
+    max-width: 70%;
+    width: 1200px;
     margin: 50px auto;
     padding: 20px;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-#cart{
+.carrinho h1{
+    text-align: center;
+}
+.carrinho h2{
+    margin-top: 30px;
+    text-align: center;
+}
+
+#cart {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.item{
+
+.item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; /* Ajustei para alinhar os itens à esquerda */
     padding: 15px;
     border-bottom: 1px solid #ddd;
 }
-.item:last-child{
+
+.item:last-child {
     border-bottom: none;
 }
-.item img{
+
+.item img {
     width: 200px;
     height: 170px;
     border-radius: 5px;
     margin-right: 15px;
+    object-fit: contain;
 }
-.texo{
+
+.texto {
     flex: 1;
-}
-.quantidade{
+    max-width: 60%; /* Ajuste a largura do texto para não ultrapassar o espaço disponível */
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
+
 .quantidade,
 .preco {
     font-size: 14px;
     color: #666;
 }
+
+.opcao {
+    display: flex;
+    gap: 20px;
+}
+
+.quantidade img {
+    width: 30px;
+    height: 30px;
+}
+
+.quantidade{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(209, 209, 209);
+    box-shadow: 2px 2px 1px 2px rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.quant span {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 10px;
+    width: fit-content;
+    font-weight: 700;
+    font-size: 12px;
+}
+.remover{
+    margin-top: 15px;
+    width: 100px;
+    font-size: 9px;
+}
+.preco{
+    margin-top: 10px;
+}
+.menos, .mais {
+    display: flex;
+    cursor: pointer;
+    width: 30px;
+}
+
 .resumo{
+    width: 200px;
+    height: 200px;
     max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    text-align: right;
+    text-align: center;
+}
+.fim{
+    margin-top: 80px;
 }
 #total{
+    display: none;
+}
+#total1{
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+#paypal-button-container {
+    width: 100%; /* Faz o botão ocupar toda a largura do contêiner */
+    height: 50px; /* Define uma altura fixa para o botão */
+    margin-top: 40px; /* Espaço entre o valor e o botão */
+    display: flex;
+    justify-content: center; /* Centraliza o botão horizontalmente */
+    align-items: center;
 }
 @media (max-width: 768px) {
     .item {

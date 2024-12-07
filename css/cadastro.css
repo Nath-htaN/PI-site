@@ -7,12 +7,14 @@
 .pagina{
     background-color: rgb(212, 212, 212);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;  /* Organiza os itens verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
     width: 100%;
-    height: calc(100vh - 85px);
-    gap: 90px;
+    height: 100vh;  /* A altura ocupa toda a tela */
+    gap: 20px;
 }
+
 .caixa{
     background-color: white;
     display: flex;
@@ -28,18 +30,26 @@
     justify-self: center;
 }
 .caixatres{
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
 }
 #produtoForm{
     align-items: center;
     justify-content: center;
     width: 200px;
+    gap: 10px
 }
 #usuarioForm{
     align-items: center;
     justify-content: center;
     width: 200px;
+    gap: 10px
 }
 #formlogin{
     display: flex;
@@ -89,4 +99,60 @@ button{
     cursor: pointer;
     margin-top: 40px;
     box-shadow: 4px 4px 1px 1px rgb(0, 0, 0);
+}
+button.sair {
+    background-color: #edc967;
+    padding: 10px 35px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px; /* Espaçamento entre a .caixa e o botão */
+    box-shadow: 4px 4px 1px 1px rgb(0, 0, 0);
+}
+.sair a{
+    text-decoration: none;
+    color: inherit; 
+}
+@media (max-width: 768px) {
+    .pagina {
+        gap: 15px;
+    }
+
+    .caixa {
+        width: 90%; /* Reduz a largura para se adaptar a telas menores */
+        height: auto; /* Ajusta a altura automaticamente */
+    }
+
+    #formlogin {
+        width: 90%; /* Ajusta a largura do formulário */
+        margin-top: 50px;
+    }
+
+    button {
+        font-size: 14px; /* Aumenta o tamanho da fonte para dispositivos menores */
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caixa {
+        width: 100%; /* Ocupa toda a largura da tela */
+        height: auto; /* Ajusta automaticamente a altura */
+        padding: 10px;
+    }
+
+    #formlogin {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 18px; /* Reduz o tamanho da fonte do título */
+    }
+
+    button {
+        font-size: 16px; /* Aumenta o tamanho da fonte */
+        padding: 12px 30px;
+    }
 }

@@ -130,6 +130,13 @@ nav ul li a{
     width: 90%;
     align-self: center;
 }
+.linha a{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  /* Centraliza o link */
+    color: red;
+    font-weight: bold;
+}
 
 .pagina{
     background-color: rgb(212,212,212);
@@ -154,6 +161,7 @@ nav ul li a{
 .imagem-selecionada img{
     width: 100%;
     border-radius: 10px;
+    object-fit: contain;
 }
 .imagens{
     display: flex;
@@ -188,7 +196,6 @@ nav ul li a{
 }
 .opções{
     display: flex;
-    gap: 20px;
 }
 .quantidade img{
     width: 30px;
@@ -258,4 +265,74 @@ nav ul li a{
     border: 2px solid;
     border-radius: 5px;
     box-shadow: 2px 2px 1px 2px rgb(0, 0, 0);
+}
+@media (max-width: 768px) {
+    .pagina {
+        gap: 20px; /* Ajusta o gap para telas menores */
+    }
+
+    .caixaesquerda, .caixadireita {
+        width: 100%; /* Ajusta as larguras para ocupar toda a tela */
+    }
+
+    .imagem-selecionada {
+        max-width: 80%; /* Ajusta o tamanho da imagem */
+    }
+
+    .imagens {
+        flex-direction: column; /* Muda as imagens para coluna em vez de linha */
+        align-items: center; /* Centraliza as imagens */
+    }
+
+    .borda {
+        width: 90%; /* Ajusta a largura da borda */
+        height: auto; /* Deixa a altura ajustar automaticamente */
+    }
+
+    .quantidade span {
+        font-size: 14px; /* Aumenta o tamanho da fonte em telas menores */
+    }
+
+    .botão {
+        font-size: 14px; /* Aumenta o tamanho da fonte do botão */
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        flex-direction: column; /* Organiza o menu verticalmente */
+        height: auto;
+        padding: 0 20px;
+    }
+
+    .leftmenu {
+        gap: 20px; /* Reduz o espaço entre os itens do menu */
+    }
+
+    .pesquisa {
+        width: 90%; /* Aumenta a largura da barra de pesquisa */
+    }
+
+    .caixaesquerda, .caixadireita {
+        width: 100%; /* Ocupa toda a largura da tela */
+    }
+
+    .borda {
+        width: 100%; /* Ajusta a borda para ocupar toda a tela */
+        height: auto; /* Deixa a altura ajustar automaticamente */
+    }
+
+    .imagem-selecionada {
+        max-width: 90%; /* Ajusta a largura da imagem selecionada */
+    }
+
+    .quantidade span {
+        font-size: 12px; /* Reduz o tamanho da fonte */
+    }
+
+    .botão {
+        font-size: 16px; /* Ajusta o tamanho do botão */
+        padding: 10px 30px;
+    }
 }

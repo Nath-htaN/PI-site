@@ -130,6 +130,13 @@ nav ul li a{
     width: 90%;
     align-self: center;
 }
+.linha a{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  /* Centraliza o link */
+    color: red;
+    font-weight: bold;
+}
 .pagina{
     background-color: gray;
     display: flex;
@@ -164,6 +171,7 @@ nav ul li a{
     justify-content: space-evenly;
     max-width: 300px;
     gap:10px;
+    object-fit: contain;
 }
 .img img{
     width: 100%;
@@ -182,4 +190,105 @@ nav ul li a{
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
+}
+/* Responsividade para telas menores */
+@media (max-width: 1024px) {
+    .menu {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .leftmenu, .rightmenu {
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #grid {
+        grid-template-columns: repeat(2, 1fr); /* Reduz de 4 para 2 colunas */
+    }
+
+    .item {
+        width: 100%; /* Aumenta a largura do item para ocupar a tela inteira */
+    }
+
+    .imagem-selecionada, .imagens {
+        max-width: 100%; /* As imagens vão ocupar toda a largura disponível */
+    }
+
+    .borda {
+        width: 100%; /* Tornar a borda mais responsiva */
+        height: auto;
+    }
+
+    .linha {
+        width: 80%; /* Ajusta a largura da linha para ficar mais proporcional em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        padding: 0 3%;
+    }
+
+    .leftmenu, .rightmenu {
+        gap: 10px;
+    }
+
+    #grid {
+        grid-template-columns: 1fr; /* Reduz para uma coluna em telas muito pequenas */
+    }
+
+    .item img {
+        max-width: 100%; /* Assegura que as imagens não ultrapassem a largura do item */
+    }
+
+    .botao {
+        padding: 5px 20px; /* Ajusta o tamanho do botão para dispositivos móveis */
+    }
+
+    .submenu {
+        width: 100%;
+        right: 0;
+        top: 50px;
+    }
+}
+
+/* Responsividade para telas muito pequenas (mobile) */
+@media (max-width: 480px) {
+    .menu {
+        padding: 0 2%;
+    }
+
+    .logo {
+        width: 100px; /* Ajusta o tamanho do logo para telas menores */
+    }
+
+    .pesquisa {
+        width: 250px; /* Ajusta a largura da barra de pesquisa */
+        margin: 20px auto;
+    }
+
+    .item {
+        margin: 10px 0; /* Dá espaçamento entre os itens na tela */
+    }
+
+    .caixadireita, .caixaesquerda {
+        width: 100%;
+    }
+
+    .borda {
+        height: auto;
+        width: 90%;
+    }
+
+    .quantidade {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .botao {
+        font-size: 14px; /* Aumenta o tamanho da fonte no botão para facilitar a leitura */
+    }
 }
