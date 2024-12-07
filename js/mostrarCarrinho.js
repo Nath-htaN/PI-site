@@ -46,8 +46,6 @@ async function mostrarCarrinho(){
     xhr.onreadystatechange = function() {
         if (xhr.readyState=== 4 && xhr.status === 200){
             const produtos = JSON.parse(xhr.responseText);
-            console.log(produtos);
-
             idlista.innerHTML =" ";
             if(produtos.length > 0 ){
                 produtos.forEach(produto =>{
@@ -75,13 +73,16 @@ async function mostrarCarrinho(){
                     nome.onclick = () =>{
                         window.location.href = `produto_${produto.idproduto}.html`;
                     };
-
+                    quantidade = document.createElement('div');
+                    quantidade.className='quantidade'
+                    opcao = document.createElement('div');
+                    opcao.className='opcao';
                     const preco = document.createElement('span');
                     preco.className = 'preco';
                     preco.textContent = `R$ ${produto.preco}`;
 
                     const quant = document.createElement('span');
-                    quant.className = 'quantidade';
+                    quant.className = 'quant';
                     quant.textContent = produto.quantidade;
 
                     const sub = document.createElement('span');
@@ -94,6 +95,10 @@ async function mostrarCarrinho(){
                     idcarrinho.textContent = produto.idcarrinho;
                     idcarrinho.style.display = 'none';
 
+                    const maior= document.createElement('div')
+                    maior.className='mais'
+                    const menor= document.createElement('div')
+                    menor.className='menos'
                     const menos= document.createElement("img");
                     menos.src="img/menor.svg";
                     menos.alt="Diminuir Quantidade"
@@ -105,6 +110,7 @@ async function mostrarCarrinho(){
                     mais.onclick=()=>addQty(quant, produto.idcarrinho);
 
                     const remover=document.createElement("button");
+                    remover.className='remover';
                     remover.type='button';
                     remover.textContent="Remover do Carrinho"
                     remover.onclick=()=>removerProduto(produto.idcarrinho)
@@ -112,25 +118,32 @@ async function mostrarCarrinho(){
                     item.appendChild(imagem);
                     texto.appendChild(id);
                     texto.appendChild(nome);
-                    texto.appendChild(quant);
+                    menor.appendChild(menos);
+                    maior.appendChild(mais)
+                    quantidade.appendChild(menor);
+                    quantidade.appendChild(quant);
+                    quantidade.appendChild(maior);
+                    opcao.appendChild(quantidade)
+                    texto.appendChild(opcao);
                     texto.appendChild(preco);
                     texto.appendChild(idcarrinho);
                     texto.appendChild(sub);
-                    texto.appendChild(menos);
-                    texto.appendChild(mais);
                     texto.appendChild(remover);
                     item.appendChild(texto);
                     idlista.appendChild(item);
             })
             } else {
-                idlista.innerHTML = "Nenhum item no carrinho";
+                const vazio = document.createElement('h2')
+                vazio.textContent='Nenhum item no carrinho'
+                idlista.appendChild(vazio);
             }
             const subtotais = document.querySelectorAll('.subtotal');
             let total = 0;
             subtotais.forEach(subtotal =>{
                 total += parseFloat(subtotal.textContent) || 0;
             });
-            document.getElementById('total').textContent = `R$ ${total.toFixed(2)}`;
+            document.getElementById('total').textContent = total.toFixed(2);
+            document.getElementById('total1').textContent = `R$ ${total.toFixed(2)}`;
         }
     }
     xhr.send()

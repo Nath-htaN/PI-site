@@ -1,21 +1,14 @@
 document.addEventListener('DOMContentLoaded', function(){
     window.onload = function(){
         const idproduto = document.querySelector('.idproduto').innerText;
-    
-        console.log(idproduto)
-    
         const xhr = new XMLHttpRequest();
-    
         xhr.open('GET', `atualizapagina.php?id=${idproduto}`, true);
         xhr.onreadystatechange = function(){
             if (xhr.readyState === 4 && xhr.status === 200) {
                 try {
                     const produto = JSON.parse(xhr.responseText);
-                    console.log(produto) // Analisa a resposta JSON
-    
                     if (produto.error) {
                         console.error("Erro ao carregar o produto: " + produto.error);
-                        return;
                     }
                     document.title = produto.nome;
                     document.querySelector('h1').innerText = produto.nome;

@@ -1,7 +1,5 @@
 // Função para obter o token do cookie
 const projectPath = window.location.pathname.split('/').slice(0, -1).join('/');
-console.log(`Caminho do projeto: ${projectPath}`);
-
 function getTokenFromCookies() {
     return document.cookie
         .split('; ')
@@ -74,12 +72,10 @@ async function isUserLoggedIn() {
             if (response.ok){
                 const tipo = await response.json();
                 const tipoid = tipo.tipousuario
-                console.log(tipoid)
                 if(tipoid == 0){
                     const linha = document.querySelector('.linha')
                     const menu = document.querySelector('.submenu')
                         menu.innerHTML ="";
-                        console.log('Token encontrado no cookie!');
                         const link = document.createElement('a');
                         link.textContent = 'cadastrar produto'
                         link.href = 'cadastro.html';
@@ -100,7 +96,6 @@ async function isUserLoggedIn() {
                 }else if(tipoid == 1){
                     const menu = document.querySelector('.submenu')
                     menu.innerHTML ="";
-                    console.log('Token encontrado no cookie!');
                     const link = document.createElement('a');
                     link.textContent = 'meus pedidos'
                     link.href = '';
@@ -120,7 +115,6 @@ async function isUserLoggedIn() {
         }
     }else{
         menu.innerHTML ="";
-        console.log('Token não encontrado no cookie!');
         const link = document.createElement('a');
         link.textContent = 'login'
         link.href = 'login.html';
