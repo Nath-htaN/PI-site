@@ -35,4 +35,5 @@ try {
 } catch (Exception $e) {
     echo json_encode(['status' => 'error', 'message' => 'Ocorreu o seguinte erro ao adicionar a quantidade: ' .$e]);
 }
+$conexao=null;
 ?>
