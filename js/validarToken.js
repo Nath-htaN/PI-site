@@ -1,4 +1,7 @@
 // Função para obter o token do cookie
+const projectPath = window.location.pathname.split('/').slice(0, -1).join('/');
+console.log(`Caminho do projeto: ${projectPath}`);
+
 function getTokenFromCookies() {
     return document.cookie
         .split('; ')
@@ -6,7 +9,7 @@ function getTokenFromCookies() {
         ?.split('=')[1];
 }
 function deslogar(nome){
-    document.cookie = nome + "=; expires = Thu 01 jan 1970 00:00 UTC; path=/aa/PI-site-main;"
+    document.cookie = nome + `=; expires = Thu 01 jan 1970 00:00 UTC; path=${projectPath}`
     location.reload();
   }
 

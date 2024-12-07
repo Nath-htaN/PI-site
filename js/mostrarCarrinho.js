@@ -90,8 +90,24 @@ async function mostrarCarrinho(){
                     sub.style.display = 'none';
 
                     const idcarrinho = document.createElement('h5');
+                    idcarrinho.className='idcarrinho'
                     idcarrinho.textContent = produto.idcarrinho;
                     idcarrinho.style.display = 'none';
+
+                    const menos= document.createElement("img");
+                    menos.src="img/menor.svg";
+                    menos.alt="Diminuir Quantidade"
+                    menos.onclick=()=>removerQty(quant, produto.idcarrinho);
+                    
+                    const mais= document.createElement("img");
+                    mais.src="img/maior.svg";
+                    mais.alt="Adicionar Quantidade"
+                    mais.onclick=()=>addQty(quant, produto.idcarrinho);
+
+                    const remover=document.createElement("button");
+                    remover.type='button';
+                    remover.textContent="Remover do Carrinho"
+                    remover.onclick=()=>removerProduto(produto.idcarrinho)
 
                     item.appendChild(imagem);
                     texto.appendChild(id);
@@ -100,6 +116,9 @@ async function mostrarCarrinho(){
                     texto.appendChild(preco);
                     texto.appendChild(idcarrinho);
                     texto.appendChild(sub);
+                    texto.appendChild(menos);
+                    texto.appendChild(mais);
+                    texto.appendChild(remover);
                     item.appendChild(texto);
                     idlista.appendChild(item);
             })
@@ -116,4 +135,87 @@ async function mostrarCarrinho(){
     }
     xhr.send()
 }
+async function addQty(quantidade, idcarrinho){
+    const valor = parseInt(quantidade.textContent.trim()) + 1;
+    try {
+        const response = await fetch('quantidade.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                quantidade: valor,
+                idcarrinho: idcarrinho
+            }),
+        });
+
+        if (!response.ok) {
+            console.error('Erro ao adicionar quantidade', response.statusText);
+            return false;
+        }
+        console.log("Quantidade alterada")   
+        quantidade.textContent=valor;
+        window.location.reload(true);   // Isso esta aqui devido eu não ter conseguido fazer de outra maneira o valor total alterar quando adiciona      
+        
+    } catch (error) {
+        console.error('Um erro ocorreu na resposta', error);
+        return false;
+    }
+    
+}
+async function removerQty(quantidade, idcarrinho){
+    const valor = parseInt(quantidade.textContent.trim()) - 1;
+    try {
+        const response = await fetch('quantidade.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                quantidade: valor,
+                idcarrinho: idcarrinho
+            }),
+        });
+
+        if (!response.ok) {
+            console.error('Erro ao adicionar quantidade', response.statusText);
+            return false;
+        }
+        console.log("Quantidade alterada")   
+        quantidade.textContent=valor;
+        window.location.reload(true);   // Isso esta aqui devido eu não ter conseguido fazer de outra maneira o valor total alterar quando adiciona      
+ 
+    } catch (error) {
+        console.error('Um erro ocorreu na resposta', error);
+        return false;
+    }
+    
+}
+async function removerProduto(idcarrinho) {
+    const valor = 0;
+    try {
+        const response = await fetch('quantidade.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 
+                quantidade: valor,
+                idcarrinho: idcarrinho
+            }),
+        });
+
+        if (!response.ok) {
+            console.error('Erro ao remover do carrinho', response.statusText);
+            return false;
+        }
+        window.location.reload(true);   // Isso esta aqui devido eu não ter conseguido fazer de outra maneira o valor total alterar quando adiciona      
+ 
+    } catch (error) {
+        console.error('Um erro ocorreu na resposta de remoção do carrinho', error);
+        return false;
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", mostrarCarrinho);
