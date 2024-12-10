@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="css/carrinho.css">
+</head>
+<header>
+    <div class="menu">
+        <div class="leftmenu">
+            <div class="logo">
+                <img src="img/rpavan2.svg">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="perfumaria.html">Perfumaria</a></li>
+                    <li><a href="aromas.html">Aromas</a></li>
+                    <li><a href="infantil.html">Infantil</a></li>
+                    <li><a href="masculino.html">Masculino</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="rightmenu">
+            <div class="pesquisa">
+                <input name="busca" id="search" placeholder="buscar" onkeyup="buscarProduto()">
+                <ul id="resultados"></ul>
+            </div>
+            <a href="carrinho.html" class="cart"><img src="img/sacola.svg"></a>
+            <div class="incon-avatar" onclick="abreomenu()">
+                <img src="img/user.svg">
+            </div>
+            <div id="loginsubmenu" class="submenu"></div>
+        </div>
+    </div>
+    <div class="linha"></div>
+</header>
+
+<body>
+    <div class="container">
+        <div class="pedidos">
+            <h1>Meus Pedidos</h1>
+            <ul id="orders"></ul>
+        </div>
+    </div>
+    <script src="js/mostrarPedido.js"></script>
+    <script src="js/validarToken.js"></script>
+</body>
+
+</html>
