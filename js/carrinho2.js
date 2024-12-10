@@ -41,7 +41,9 @@ async function addCarrinho() {
     const idproduto = document.querySelector(".idproduto").textContent.trim();
     const quantidade=document.querySelector(".qty").textContent.trim();
     const idusuario= await IdToken();
-    console.log(idusuario);
+    if(idusuario==false){
+        return window.location.href = 'login.html';
+    }
     try {
         const response = await fetch('adicionar_carrinho.php', {
             method: 'POST',
